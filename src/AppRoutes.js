@@ -24,9 +24,11 @@
 import React from 'react';
 import { Route, Routes,Navigate} from 'react-router-dom';
 import Home from './pages/home/Home';
+import Partners from './pages/masters/partners/Partners';
 import Login from './components/forms/UserForm'; // Import your UserForm component
 import { useAuth } from './context/AuthContext';
 import Layout from './components/layouts/Layout';
+import Reason from './pages/masters/reason/Reason';
 
 const AppRoutes = () => {
   const { authenticated } = useAuth();
@@ -37,8 +39,13 @@ const AppRoutes = () => {
       )}
 
       {authenticated && (
-        // <Route path="/home" element={<Home />} /> 
+        <>
+        <Route path="/home" element={<Home/>} /> 
+        <Route path="/partners" element={<Partners/>} />
+        <Route path="/reason" element={<Reason/>} />
         <Route path="/" element={<Layout/>} /> 
+        </>
+        
       )}
 
       <Route path="*" element={<Navigate to="/login" />} /> {/* Redirect to login if no matching routes */}

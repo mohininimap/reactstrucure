@@ -4,7 +4,6 @@ import Navbar from '../navbar/Navbar';
 import Sidebar from '../sidebar/Sidebar';
 import { useAuth } from '../../context/AuthContext';
 import UserForm from '../forms/UserForm'; 
-
 const Layout = () => {
   const { authenticated } = useAuth();
   console.log("inside layout", authenticated)
@@ -14,6 +13,7 @@ const Layout = () => {
         <>
           <Navbar />
           <Sidebar />
+        
           <div className="content">
             <Outlet /> 
           </div>

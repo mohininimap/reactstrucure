@@ -4,3 +4,80 @@ npm i react-router-dom
 npm install @mui/material @mui/icons-material
 npm install @emotion/react @emotion/styled
 npm install react-toastify
+------------------------------
+github links =>https://github.com/mohininimap/reactstrucure
+npm i react-ions --save
+https://react-icons.github.io/react-icons/?q=home
+===========================================search============
+REusable Header
+import * as React from 'react';
+import { styled } from '@mui/material/styles';
+import Grid from '@mui/material/Grid';
+import Paper from '@mui/material/Paper';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
+
+const Item = styled(Paper)(({ theme }) => ({
+  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+  ...theme.typography.body2,
+  padding: theme.spacing(1),
+  textAlign: 'center',
+  color: theme.palette.text.secondary,
+}));
+
+export default function RowAndColumnSpacing() {
+  return (
+    <Box sx={{ width: '100%' }}>
+      <Grid container alignItems="flex-end">
+        <Grid item xs={4}>
+          <Item>
+            <Typography variant="h6"></Typography>
+          </Item>
+        </Grid>
+        <Grid item xs={4}>
+          <Item>
+            <TextField
+              label="Search"
+              variant="outlined"
+              fullWidth
+              // Add your search logic here
+            />
+          </Item>
+        </Grid>
+        <Grid item xs={4}>
+          <Item>
+            <Button variant="contained" color="primary">
+              Add
+            </Button>
+          </Item>
+        </Grid>
+      </Grid>
+    </Box>
+  );
+}
+========================
+ <h4>{pageTitle}</h4>
+	#FFF5EE
+  ============================
+  BiHome
+  =====================
+  SearchTextField
+  ----------------------
+  http://144.91.79.237:8900/api/reason?search=&from=1&to=10
+  ====================
+  useEffect(() => {
+    // Use Axios to fetch data from the API
+    axios.get('/api/vendor')
+      .then((response) => {
+        const data = response.data;
+        if (data && data.data && data.data.vendors) {
+          // Extract the vendors array from the API response
+          setVendors(data.data.vendors);
+        }
+      })
+      .catch((error) => {
+        console.error('Error fetching data:', error);
+      });
+  }, []);

@@ -17,11 +17,14 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
+import Home from '../../pages/home/Home';
+import Partners from '../../pages/masters/partners/Partners';
+import Reason from '../../pages/masters/reason/Reason';
 
+import {BiHome} from 'react-icons/bi';
+import {FaUserAlt} from 'react-icons/fa';
+import Header from '../header/Header';
 const drawerWidth = 240;
-
 const openedMixin = (theme: Theme): CSSObject => ({
   width: drawerWidth,
   transition: theme.transitions.create('width', {
@@ -30,7 +33,6 @@ const openedMixin = (theme: Theme): CSSObject => ({
   }),
   overflowX: 'hidden',
 });
-
 const closedMixin = (theme: Theme): CSSObject => ({
   transition: theme.transitions.create('width', {
     easing: theme.transitions.easing.sharp,
@@ -85,11 +87,10 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
     }),
   }),
 );
-
 const Sidebar = () => {
   const theme = useTheme();
   const [open, setOpen] = useState(false);
-
+  const [menudata,setMenudata]=useState("Home");
   const handleDrawerOpen = () => {
     setOpen(true);
   };
@@ -101,7 +102,7 @@ const Sidebar = () => {
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
-      <AppBar position="fixed" open={open}>
+      <AppBar style={{backgroundColor:"#FFF3E0"}} position="fixed" open={open}>
         <Toolbar>
           <IconButton
             color="inherit"
@@ -110,74 +111,63 @@ const Sidebar = () => {
             edge="start"
             sx={{
               marginRight: 5,
+              color:"rgb(67,48,46)",
               ...(open && { display: 'none' }),
             }}
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap component="div">
+          <Typography style={{color:"rgb(67,48,46)"}} variant="h6" noWrap component="div">
             RSP
           </Typography>
         </Toolbar>
       </AppBar>
       <Drawer variant="permanent" open={open}>
         <DrawerHeader>
-          <IconButton onClick={handleDrawerClose}>
+          <IconButton onClick={handleDrawerClose} sx={{color:"rgb(67,48,46)"}}>
             {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
           </IconButton>
         </DrawerHeader>
         <Divider />
         <List>
           {/* Sidebar navigation */}
-          <ListItem key="Home" disablePadding sx={{ display: 'block' }}>
+          <ListItem key="Home" disablePadding sx={{ display: 'block' }} onClick={()=>setMenudata("Home")}>
             <ListItemButton component={Link} to="/home">
               <ListItemIcon sx={{ minWidth: 0, mr: open ? 3 : 'auto', justifyContent: 'center' }}>
-                <InboxIcon />
+                <BiHome/>
               </ListItemIcon>
               <ListItemText primary="Home" sx={{ opacity: open ? 1 : 0 }} />
             </ListItemButton>
           </ListItem>
-          <ListItem key="Partners" disablePadding sx={{ display: 'block' }}>
+          <ListItem key="Partners" disablePadding sx={{ display: 'block' }} onClick={()=>setMenudata("Partners")}>
             <ListItemButton component={Link} to="/partners">
               <ListItemIcon sx={{ minWidth: 0, mr: open ? 3 : 'auto', justifyContent: 'center' }}>
-                <MailIcon />
+                <FaUserAlt/>
+               
               </ListItemIcon>
               <ListItemText primary="Partners" sx={{ opacity: open ? 1 : 0 }} />
+            </ListItemButton>
+          </ListItem>
+          <ListItem key="Reason" disablePadding sx={{ display: 'block' }} onClick={()=>setMenudata("Reason")}>
+            <ListItemButton component={Link} to="/Reason">
+              <ListItemIcon sx={{ minWidth: 0, mr: open ? 3 : 'auto', justifyContent: 'center' }}>
+                <FaUserAlt/>
+               
+              </ListItemIcon>
+              <ListItemText primary="Reason" sx={{ opacity: open ? 1 : 0 }} />
             </ListItemButton>
           </ListItem>
           {/* Add more sidebar links */}
         </List>
         <Divider />
-        <List>
-          {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-            <ListItem key={text} disablePadding sx={{ display: 'block' }}>
-              <ListItemButton
-                sx={{
-                  minHeight: 48,
-                  justifyContent: open ? 'initial' : 'center',
-                  px: 2.5,
-                }}
-              >
-                <ListItemIcon
-                  sx={{
-                    minWidth: 0,
-                    mr: open ? 3 : 'auto',
-                    justifyContent: 'center',
-                  }}
-                >
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
-                <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </List>
+     
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-        <DrawerHeader />
-        <Typography paragraph>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        </Typography>
+      <Header pageTitle={menudata}/>
+      {menudata=="Home" && <Home/>}
+      {menudata=="Partners" && <Partners/>}
+      {menudata=="Reason" && <Reason/>}
+       
       </Box>
     </Box>
   );

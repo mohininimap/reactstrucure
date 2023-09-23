@@ -9,24 +9,26 @@ import Paper from '@mui/material/Paper';
 import { FaEdit, FaTrash } from 'react-icons/fa';
 import axios from 'axios';
 import publicRequest from '../../../services/publicRequest';
-const Partners = () => {
+
+const Reason = () => {
   const [partners, setPartners] = useState([]);
+
   useEffect(() => {
     const token = localStorage.getItem('authUser') ? JSON.parse(localStorage.getItem('authUser')).token : null;
     if (token) {
       const authenticatedRequest = axios.create({
-        baseURL: publicRequest.defaults.baseURL, 
+        baseURL: publicRequest.defaults.baseURL,
         headers: {
           Authorization: `Bearer ${token}`,
-          'Content-Type': 'application/json', 
+          'Content-Type': 'application/json',
         },
       });
-      authenticatedRequest.get('/api/vendor')
+      authenticatedRequest.get('/api/reason')
         .then((response) => {
           console.log("responsesds", response);
           const data = response.data;
-          if (data && data.data && data.data.vendors) {
-            setPartners(data.data.vendors);
+          if (data && data.data && data.data.reasonData) {
+            setPartners(data.data.reasonData); // Corrected the path to reasonData
           }
         })
         .catch((error) => {
@@ -36,19 +38,20 @@ const Partners = () => {
       console.log('Token not found in localStorage');
     }
   }, []);
+
   return (
     <TableContainer component={Paper}>
       <Table>
         <TableHead>
           <TableRow>
-            <TableCell>Partner Name</TableCell>
+            <TableCell>Reason</TableCell>
             <TableCell>Actions</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {partners.map((partner) => (
             <TableRow key={partner.id}>
-              <TableCell>{partner.company_name}</TableCell>
+              <TableCell>{partner.description}</TableCell> {/* Corrected to use 'description' */}
               <TableCell>
                 <FaEdit style={{ cursor: 'pointer', marginRight: '8px' }} />
                 <FaTrash style={{ cursor: 'pointer' }} />
@@ -60,4 +63,5 @@ const Partners = () => {
     </TableContainer>
   );
 };
-export default Partners;
+
+export default Reason;
