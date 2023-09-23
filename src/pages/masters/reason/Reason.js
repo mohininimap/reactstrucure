@@ -6,7 +6,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { FaEdit, FaTrash } from 'react-icons/fa';
+import { FaEdit, FaTrash,FaPlus, FaCartPlus } from 'react-icons/fa';
 import axios from 'axios';
 import publicRequest from '../../../services/publicRequest';
 
@@ -53,8 +53,9 @@ const Reason = () => {
             <TableRow key={partner.id}>
               <TableCell>{partner.description}</TableCell> {/* Corrected to use 'description' */}
               <TableCell>
+              
                 <FaEdit style={{ cursor: 'pointer', marginRight: '8px' }} />
-                <FaTrash style={{ cursor: 'pointer' }} />
+                <FaTrash style={{ cursor: 'pointer' ,marginRight: '8px'}} />
               </TableCell>
             </TableRow>
           ))}

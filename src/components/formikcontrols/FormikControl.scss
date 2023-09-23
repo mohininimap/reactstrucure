@@ -1,0 +1,213 @@
+@import "../../../utility/base";
+
+.form {
+  font-size: 13px;
+  display: grid;
+  align-content: center;
+  padding: 0.25rem;
+  // margin-bottom: 20px;
+
+  &__content {
+
+    display: grid;
+    // grid-auto-flow: column;
+    // grid-template-columns: repeat(2, 1fr);
+    justify-items: start;
+    align-items: center;
+    justify-content: start;
+
+    &--radio {
+      display: grid;
+      grid-auto-flow: column;
+      width: 300px;
+    }
+
+    &--i {
+      grid-row: 2/3;
+      grid-column: 1/2;
+      justify-self: end;
+      padding-right: 1rem;
+      transition: all 0.2s;
+
+      &:hover {
+        cursor: pointer;
+        transform: scale(1.2);
+      }
+    }
+
+    &--label {
+      margin-bottom: 0px;
+      font-size: 1.3rem;
+
+      &-email {
+        margin-bottom: 0px;
+        font-size: 1.3rem;
+        position: relative;
+        left: 6rem;
+      }
+
+      &-span {
+        color: orangered;
+        font-size: 2rem;
+        vertical-align: middle;
+        line-height: 5px;
+      }
+    }
+
+    &--input {
+      justify-self: end;
+      padding-left: 7px;
+      width: 300px;
+      // height: 35px;
+      height: auto;
+      min-height: 35px;
+      max-height: 100px;
+      outline: none;
+      border-radius: 5px;
+      grid-row: 2/3;
+      grid-column: 1/2;
+      display: grid;
+      grid-template-columns: 15fr 1fr;
+      align-content: center;
+      justify-content: center;
+      justify-items: start;
+      align-items: center;
+      font-size: 1.2rem;
+      grid-auto-flow: column;
+      border: 1px solid hsl(0, 0%, 80%);
+
+      &::-webkit-datetime-edit-day-field,
+      &::-webkit-datetime-edit-month-field,
+      &::-webkit-datetime-edit-year-field {
+        background: none !important;
+        color: black;
+      }
+
+      &-email {
+        justify-self: end;
+        padding-left: 7px;
+        width: 430px;
+        // height: 35px;
+        height: auto;
+        min-height: 35px;
+        max-height: 100px;
+        outline: none;
+        border-radius: 5px;
+        grid-row: 2/3;
+        grid-column: 1/2;
+        display: grid;
+        grid-template-columns: 15fr 1fr;
+        align-content: center;
+        // justify-content: center;
+        justify-items: start;
+        align-items: center;
+        font-size: 1.2rem;
+        grid-auto-flow: column;
+        border: 1px solid hsl(0, 0%, 80%);
+        position: relative;
+        left: 6rem;
+      }
+
+      &-1 {
+        justify-self: end;
+        width: 430px;
+        height: 35px;
+        min-height: 75px;
+        max-height: 100px;
+        outline: none;
+        border-radius: 5px;
+        grid-row: 2/3;
+        grid-column: 1/2;
+        display: grid;
+        grid-template-columns: 15fr 1fr;
+        align-content: center;
+        // justify-content: center;
+        justify-items: start;
+        align-items: center;
+        font-size: 1.2rem;
+        grid-auto-flow: column;
+        border: 1px solid hsl(0, 0%, 80%);
+      }
+
+      &-label {
+        display: grid;
+        // background-color: mediumseagreen;
+        color: $color-primary;
+        font-size: 16px;
+        padding: 5px 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        justify-self: end;
+      }
+
+      &-file {
+        display: none;
+
+        &::placeholder {
+          color: grey !important;
+        }
+      }
+
+      &::placeholder {
+        font-size: 1.1rem;
+        color: grey !important;
+      }
+
+      &-sec {
+        display: grid;
+        grid-auto-flow: column;
+        align-items: center;
+        height: 40px;
+        gap: 0.8rem;
+        justify-content: start;
+      }
+    }
+
+    &--error {
+      color: orangered;
+    }
+  }
+}
+
+.react-datepicker__input-container {
+  display: grid;
+}
+
+.anit {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: repeat(3, 1fr);
+  width: 100%;
+
+  &-1 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.errorMessage {
+  color: orangered;
+}
+
+label {
+  margin-bottom: 0px;
+}
+
+.css-144kmby-menu {
+  overflow: auto;
+  max-height: 300px;
+}
+
+.form__content--input {
+  & div:first-child() {
+    height: auto !important;
+  }
+}
+
+.css-14el2xx-placeholder {
+  color: hsl(0, 0%, 50%);
+  grid-area: 1/1/2/3;
+  margin-left: 2px;
+  margin-right: 2px;
+  box-sizing: border-box;
+  margin-top: initial;
+}

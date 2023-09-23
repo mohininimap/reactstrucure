@@ -1,0 +1,65 @@
+$color-primary :#63B8EC;
+$color-primary-light:#e5f4fc;
+$color-primary-light1:#a2dfff;
+$color-primary-light2:#79d0ff;
+$color-primary-light3:#b9e5ff;
+$color-primary-dark:#1a1a27;
+$color-primary-dark1:#27273a;
+$color-primary-dark2:#32324b;
+$color-secondary:#5d78ff;
+$color-secondary-dark:#494b74;
+$color-text:#4c4e6f;
+$color-text1:#a2a3b7;
+$color-border-primary:rgb(216, 215, 215);
+
+
+
+@font-face {
+    font-family: myFont;
+    // src: url(../src/font/Mont-Regular.otf);
+}
+ 
+@font-face {
+    font-family: mySemiFont;
+    // src: url(../src/font/Mont-SemiBold.otf);
+}
+
+@font-face {
+    font-family: myBold;
+    // src: url(../src/font/Mont-Bold.otf);
+}
+
+::-webkit-scrollbar{
+    width: .7rem;
+    height: .7rem;
+}
+::-webkit-scrollbar-thumb{
+    background-color: $color-primary-light1;
+    border-radius: 1rem;
+
+    &:hover{
+        background-color: $color-primary;
+    }
+
+}
+
+
+
+*,
+*::after,
+*::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html{
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+
+body{
+    
+    font-family: myFont;
+    color: #393939;
+}

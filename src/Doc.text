@@ -81,3 +81,12 @@ export default function RowAndColumnSpacing() {
         console.error('Error fetching data:', error);
       });
   }, []);
+  ===========================
+  npm i react-redux
+  --------------------
+  Can't resolve 'react-datepicker'
+  npm install react-datepicker
+  npm install @mui/material @mui/icons-material
+  Error: Can't resolve 'react-select'
+  ---------------
+  npm i @material-ui/core@4.12.4
