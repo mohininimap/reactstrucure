@@ -54,12 +54,14 @@ const ReasonMasterModal = ({
           onHide={closeModal}
           backdrop="static"
           keyboard={false}
-          size="sm"
+          size="md"
           centered
+          style={{border:"1px solid",borderRadius:"0px"}}
+
         >
           <Modal.Header>
             <h4>
-            {Object.keys(data).length === 0 ? <div><span className="modal__sec--head">Add</span> Reason Master</div> : <div><span className="modal__sec--head">Update</span> Reason Master</div>}
+            {Object.keys(data).length === 0 ? <div><span className="modal__sec--head">Add</span> Reason</div> : <div><span className="modal__sec--head">Update</span> Reason Master</div>}
               
             </h4>
           </Modal.Header>
@@ -75,7 +77,8 @@ const ReasonMasterModal = ({
               {(formik) => {
                 return (
                   <Modal.Body>
-                    <Form className="modal__sec--body-form-1">
+                    {/* className="modal__sec--body-form-1" */}
+                    <Form>
                       <FormikControl
                         control="input"
                         label="Reason"
@@ -86,11 +89,14 @@ const ReasonMasterModal = ({
                       />
 
                       <Modal.Footer className="modal__sec--body-form-bottom-1">
-                        <Button type="submit" className="modal__sec--btn">
+                      {/* className="modal__sec--btn" */}
+                        <Button type="submit" style={{backgroundColor:'rgb(67, 48, 46)',width:"100px"}}>
                           {Object.keys(data).length === 0 ? "Add" : "Update"}
                         </Button>
+                        {/* className="modal__sec--btn modal__sec--btn-close" */}
                         <Button
-                          className="modal__sec--btn modal__sec--btn-close"
+                        
+                          style={{backgroundColor:"dodgerBlue",width:"100px"}}
                           onClick={closeModal}
                         >
                           Close

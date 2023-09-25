@@ -9,10 +9,13 @@ import Paper from '@mui/material/Paper';
 import { FaEdit, FaTrash,FaPlus, FaCartPlus } from 'react-icons/fa';
 import axios from 'axios';
 import publicRequest from '../../../services/publicRequest';
+import ReasonMasterModal from "../../../components/modals/ReasonMasterModal";
 
 const Reason = () => {
   const [partners, setPartners] = useState([]);
-
+  const [isOpen, setIsOpen] = useState(false);
+  const [edata, setEdata] = useState({});
+  
   useEffect(() => {
     const token = localStorage.getItem('authUser') ? JSON.parse(localStorage.getItem('authUser')).token : null;
     if (token) {
@@ -38,6 +41,14 @@ const Reason = () => {
       console.log('Token not found in localStorage');
     }
   }, []);
+  const openModal = (e, data = {}) => {
+    e.preventDefault();
+    setIsOpen(true);
+    setEdata(data);
+  };
+  const closeModal = () => {
+    setIsOpen(false);
+  };
 
   return (
     <TableContainer component={Paper}>

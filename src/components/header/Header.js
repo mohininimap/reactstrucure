@@ -54,15 +54,25 @@ const AddButton = styled(Button)(({ theme }) => ({
 export default function Header(props) {
   
   const [isModalOpen, setIsModalOpen] = useState(false);
-
+  const [isOpen, setIsOpen] = useState(false);
+  const [edata, setEdata] = useState({});
  
-  const openModal = () => {
-    setIsModalOpen(true);
-  };
+  // const openModal = () => {
+  //   setIsModalOpen(true);
+  // };
 
   
+  // const closeModal = () => {
+  //   setIsModalOpen(false);
+  // };
+
+  const openModal = (data = {}) => {
+  
+    setIsOpen(true);
+    setEdata(data);
+  };
   const closeModal = () => {
-    setIsModalOpen(false);
+    setIsOpen(false);
   };
 
   return (
@@ -78,7 +88,11 @@ export default function Header(props) {
             variant="contained"
             color="primary"
             sx={{ marginLeft: '8px' }}
-            onClick={openModal} 
+            // onClick={openModal} 
+            onClick={() => {
+              // handleSubmit(formik.values);
+              openModal(); // Open the ResourceViewModal
+            }}
           >
             <FaPlus style={{ cursor: 'pointer', marginRight: '8px' }} />
           </AddButton>
@@ -88,6 +102,14 @@ export default function Header(props) {
             
             <ReasonMasterModal closeModal={closeModal} />
           </Dialog>
+          {isOpen && (
+            <ReasonMasterModal
+              isOpen={isOpen}
+              closeModal={closeModal}
+              // Pass any necessary props to the ResourceViewModal
+              // You can also pass edata as needed
+            />
+          )}
         </Box>
       </HeaderBox>
     </HeaderContainer>
