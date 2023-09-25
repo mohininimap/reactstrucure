@@ -1,0 +1,92 @@
+@import '../../../base';
+
+.reusableHeader{
+    // background-color: $color-primary-light1;
+    display: grid;
+    grid-auto-flow: column;
+    padding-bottom:1rem;
+    grid-template-columns: repeat(2, 1fr);
+
+    &__name{
+        display: grid;
+        grid-auto-flow: column;
+        grid-template-columns: 20px 1fr;
+        align-content: center;
+        font-size: 1.5rem;
+    }
+
+    &__search{
+        display: grid;
+        grid-auto-flow: column;
+        gap: 2rem;
+        justify-content: end;
+
+        &--first{
+            justify-self: end;
+
+            &-input{
+                padding: 1rem 2rem;
+                border: 1px solid #EFEFEF;
+                border-radius: 5rem;
+                font-size: 1.2rem;
+                width: 250px;
+            }
+
+            &-btn{
+                padding: 1rem 2rem;
+                border: 1px solid ;
+                border-radius: 5rem;
+                border-left: none;
+                background-color: white;
+                border-top-right-radius: 5px;
+                border-bottom-right-radius: 5px;
+
+                &-icon{
+                    font-size: 1.2rem;
+                    cursor: pointer;
+                    transition: all .2s;
+
+                    &:hover{
+                        color: $color-primary;
+                    }
+                }
+            }
+        }
+
+        &--second{
+            display: grid;
+                grid-auto-flow: column;
+                gap: 2rem;
+            &-btn{
+                
+                width: 15rem;
+                padding: 1rem 1rem;
+                background-color: $color-primary;
+                border-radius: 5rem;
+                color: white;
+                font-size: 1.2rem;
+                border: none;
+                cursor: pointer;
+                transition: all .2s;
+
+                &:hover{
+                    background-color: $color-primary-light2;
+                }
+            }
+        }
+
+        &--filter{
+            display: grid;
+            justify-items: center;
+            align-items: center;
+            background-color: #63B8EC;
+            padding: .8vw .8vw;
+            border-radius: 3vw;
+            cursor: pointer;
+
+            &:hover{
+                background-color: #7fccfc;
+            }
+        }
+    }
+}
