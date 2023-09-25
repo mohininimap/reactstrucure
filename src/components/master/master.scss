@@ -1,0 +1,566 @@
+@import "../../../utility/base";
+.react-date-picker__wrapper {
+  width: 250px;
+  padding: 0.7rem 1rem;
+  border-radius: 5px;
+  border: 0.1px solid #c5c6c6;
+  outline: none;
+  font-size: 1.4rem;
+}
+.datePicker {
+  z-index: 0;
+}
+.abbrr {
+  text-decoration: none !important;
+  cursor: context-menu !important;
+}
+.projectTarget {
+  border: 1px solid #d0edff;
+  border-radius: 1.5rem;
+  padding: 2rem;
+  overflow-x: scroll;
+
+  &__dateSection {
+    padding: 2rem 0rem;
+  }
+
+  &__table {
+    background-color: white;
+    border-radius: 5px;
+    width: 100%;
+    max-height: 65vh;
+    overflow: auto;
+    padding: 0px;
+    // z-index: -1;
+    // position: relative;
+
+    &--tab {
+      border-collapse: collapse;
+      width: 100%;
+      position: relative;
+
+      &-head {
+        border-bottom: 1px solid $color-primary;
+        font-size: 14px;
+        top: 0;
+        left: 0;
+        position: sticky;
+        z-index: 100;
+        background-color: white;
+
+        tr {
+          th {
+            // padding-right: 0rem;
+            font-family: myBold;
+            padding-bottom: -1rem;
+          }
+        }
+
+        &-th {
+          display: grid;
+          grid-auto-flow: column;
+          width: 150px;
+
+          &-1 {
+            min-width: 16rem;
+            // padding: 1.2rem;
+            // padding-left: 1.2rem;
+            font-family: myBold;
+          }
+          &-2 {
+            min-width: 75px;
+            // padding: 1.2rem;
+            // padding-left: 1.2rem;
+            font-family: myBold;
+          }
+          &-3 {
+            min-width: 10rem;
+            // padding: 1.2rem;
+            // padding-left: 1.2rem;
+            font-family: myBold;
+            // text-align: center;
+          }
+          &-4 {
+            min-width: 14rem;
+            // padding: 1.2rem;
+            // padding-left: 1.2rem;
+            font-family: myBold;
+          }
+          &-5 {
+            min-width: 14rem;
+            // padding: 1.2rem;
+            // padding-left: 1.2rem;
+            font-family: myBold;
+          }
+          &-6 {
+            min-width: 2rem;
+           
+            font-family: myBold;
+          }
+          // &-7 {
+          //   min-width: 10px !important;
+          //   width:10px !important;
+          //   font-family: myBold;
+          // }
+        }
+
+        &-row {
+          background-color: #f2f2f2;
+
+          &-th1 {
+            border-right: 0.1px solid #a2dafd;
+
+            &-div {
+              display: grid;
+              grid-auto-flow: column;
+              gap: 5px;
+              height: 100%;
+              width: 110px;
+              justify-content: center;
+
+              &-span {
+                display: grid;
+                align-content: center;
+              }
+            }
+          }
+
+          &-th2 {
+            display: grid;
+            grid-auto-flow: column;
+            align-content: center;
+            align-items: center;
+            width: 50px;
+            gap: 5px;
+            overflow: hidden;
+          }
+
+          &-th3 {
+            border-right: 0.1px solid #c3e4f8;
+
+            &:last-child {
+              border-right: 0px;
+            }
+          }
+
+          th {
+            padding: 1.8rem;
+          }
+        }
+      }
+
+      &-body {
+        font-size: 12px;
+        overflow: auto;
+
+        &-tr{
+          &-td {
+            font-size: 14px;
+
+            &-1{
+              min-width: 100px;
+            }
+            &-2{
+              min-width: 125px;
+            }
+            &-3{
+              min-width: 150px;
+            }
+            &-4{
+              min-width: 175px;
+            }
+            &-5{
+              min-width: 200px;
+            }
+          }
+        }
+
+
+        &-a {
+          cursor: pointer;
+          transition: all 0.2s;
+
+          &:hover {
+            color: $color-primary;
+          }
+        }
+
+        &-btn {
+          height: 17px;
+          width: 13px;
+          display: grid;
+          justify-content: center;
+          align-content: center;
+        }
+
+        tr {
+          border-bottom: 0.1px double #d0edff;
+
+          td {
+          // padding: 0.2rem 1.2rem;
+            // padding: 0.2rem 3.2rem;
+            // padding-left: 0;
+            // text-align: center;
+            padding: 0.2rem 0;
+
+            &:first-child {
+              // padding-left: 1.2rem;
+            }
+          }
+          td {
+            button[disabled] {
+              background-color: grey;
+            }
+          }
+        }
+
+        &-alignCenter {
+          text-align: start;
+
+          &-group {
+            width: 50px;
+            display: grid;
+            grid-auto-flow: column;
+            justify-items: center;
+          }
+
+          &-view {
+            cursor: pointer;
+            color: $color-primary;
+            font-size: 1.5rem;
+            transition: all 0.2s;
+
+            &:hover {
+              transform: scale(1.5);
+            }
+          }
+
+          &-edit {
+            color: blueviolet;
+            cursor: pointer;
+            font-size: 1.5rem;
+            transition: all 0.2s;
+
+            &:hover {
+              transform: scale(1.5);
+            }
+          }
+
+          &-delete {
+            color: orangered;
+            cursor: pointer;
+            font-size: 1.5rem;
+            transition: all 0.2s;
+
+            &:hover {
+              transform: scale(1.5);
+            }
+          }
+
+          &-active {
+            color: white;
+            background-color: yellowgreen;
+            cursor: pointer;
+            font-size: 1.2rem;
+            border-radius: 1rem;
+            padding: 0.5rem 1rem;
+            border: none;
+            justify-self: start;
+            transition: all 0.2s;
+
+            &:hover {
+              transform: scale(1.1) translateY(-3px);
+            }
+          }
+        }
+      }
+
+      &-td {
+        font-size: 14px;
+        font-weight: 800;
+        text-align: end;
+        color: orangered;
+      }
+    }
+  }
+
+  &__footer {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: 1fr;
+    justify-items: end;
+    align-items: center;
+    // padding-top: 1rem;
+    padding-left: 1rem;
+    gap: 1rem;
+    font-size: 13px;
+
+    &--para {
+      align-self: center;
+
+      p {
+        margin: 0;
+      }
+    }
+
+    
+
+    &--buttons {
+      justify-self: start;
+      display: grid;
+      grid-auto-flow: column;
+      gap: 0.5rem;
+      cursor: pointer;
+      list-style: none;
+      margin-bottom: 0px;
+
+      li {
+        height: 23px;
+        display: grid;
+        align-content: center;
+      }
+
+
+      &-active {
+        text-align: center;
+        height: 23px;
+        width: 24px;
+        border-radius: 5px;
+        background-color: $color-primary;
+        // border: 2px solid $color-primary;
+
+        a {
+          color: white;
+        }
+      }
+      &-paginationDisabled {
+        color: burlywood;
+      }
+      &-lessthan {
+        padding: 0rem 0.7rem;
+        // height: 3.5rem;
+        // width: 3.5rem;
+        border-radius: 4px;
+        cursor: pointer;
+        background-color: rgb(172, 172, 172);
+        border: none;
+        outline: none;
+        text-decoration: none;
+        transition: all 0.2s;
+        color: #454d67;
+
+        &:hover {
+          background-color: gray;
+          text-decoration: none;
+          color: white;
+        }
+      }
+
+      &-num {
+        padding: 0.3rem 1rem;
+        height: 3.5rem;
+        width: 3.5rem;
+        border-radius: 4px;
+        cursor: pointer;
+        border: none;
+        outline: none;
+      }
+    }
+  }
+}
+.table_css{
+  padding-left: 33vw;
+}
+.column_css{
+  padding-left: 3em ;
+}
+.acount_align_css{
+  white-space: nowrap;
+  width: 10rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.width_align_css{
+  width: 25%;
+}
+.action_tablecss{
+  display:grid ;
+  grid-auto-flow: column;
+  gap: 2rem;
+  justify-content: start;
+
+}
+.team_css{
+  padding: 5px;
+}
+
+.text_css{
+  text-decoration: none !important;
+}
+.fotter_css{
+  text-align: center;
+  color: orangered;
+  font-size: 1.4rem;
+}
+
+.center_alignment_table{
+  padding-left: 42px !important;
+}
+
+.contact_patner{
+  padding-left: 28px !important;
+}
+.contact_email{
+  padding-left: 20px;
+}
+.finance-email{
+  padding-left: 5px !important;
+}
+.align-button{
+  display: flex;
+}
+.button_approval{
+  border-radius: 50px !important;
+  background-color: #0abb87 !important;
+  border-color: #0abb87 !important;
+}
+.rings_css{
+padding-left: 33vw;
+}
+.fix_align{
+  padding-right: 3rem;
+}
+
+
+
+
+.cursor_css{
+  cursor: pointer;
+}
+.action_css{
+  width: 15%;
+}
+
+.resource_countcss{
+  cursor: pointer;
+  text-align: center;
+  color: #63B8EC ;
+}
+.count_css{
+  cursor: pointer;
+  color: #63B8EC ;
+  padding-left: 20rem;
+}
+.align_fix{
+  padding-right: 3rem;
+}
+
+
+.center_css{
+  text-align: center;
+}
+.left_css{
+  text-align: center;
+}
+.res_count{
+  cursor: pointer;
+  color:#63B8EC ;
+
+}
+.css_team{
+  text-align: center;
+}
+
+.acount_css{
+  padding-left: 5em !important;
+}
+
+.table_bordercss{
+  min-width: 12em;
+  padding: 1.2rem;
+}
+.Purchase_css{
+  padding-left: 0px !important;
+}
+.type_align{
+  padding-left: 30px !important;
+}
+.action_align{
+  text-align: center;
+}
+.purchase_client{
+  padding-left: 30px !important;
+}
+.Reject_status{
+  background-color: red !important;
+}
+
+.action_css{
+  padding-right: 70px;
+}
+.eye_icon{
+  padding-right: 20px;
+}
+.date_align{
+  padding-left: 6px !important;
+}
+
+a {
+  text-decoration: none;
+  transition: all 0.2s;
+
+  &:hover {
+    text-decoration: none;
+    color: black;
+  }
+}
+.options {
+  background-color: white;
+  color: black;
+}
+#Sroc-option {
+  border: none !important;
+  border-radius: 3px;
+  font-weight: thin;
+}
+.clie_start_date {
+  font-family: mySemiFont;
+  color: green;
+}
+.clie_end_date {
+  font-family: mySemiFont;
+  color: orange;
+}
+.clien {
+  font-family: mySemiFont;
+}
+.poc_detail:hover {
+  cursor: pointer;
+  color: #63B8EC;
+}
+.table_width{
+  width: 117px !important;
+}
+
+.remove_inlinecss{
+  padding: 1px 3px !important;
+}
+.table_align{
+  text-align: center !important;
+}
+.rows-select{
+  border-radius: 5px;
+}
+.td-left-border {
+  border-left: .1px solid #a2dafd;
+}
+.arcresourcepointer{
+  cursor: pointer !important;
+}
+.contactnumalign{
+  padding-left: 15px !important;
+}
+.invdatecol{
+  padding-left: 12px !important;
+}
+
